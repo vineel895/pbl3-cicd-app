@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CloudPulse | Deployment Center</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #172033;
+}
+
+.header {
+    background: #111827;
+    color: white;
+    padding: 22px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.live {
+    background: #16a34a;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.container {
+    padding: 40px 55px;
+}
+
+.hero {
+    background: linear-gradient(120deg,#2563eb,#7c3aed);
+    color: white;
+    padding: 35px;
+    border-radius: 18px;
+    margin-bottom: 28px;
+}
+
+.hero h1 {
+    margin: 0 0 10px;
+    font-size: 36px;
+}
+
+.hero p {
+    margin: 0;
+    opacity: .9;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.card {
+    background: white;
+    padding: 24px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.06);
+}
+
+.card h3 {
+    margin: 0 0 12px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.value {
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.green {
+    color: #16a34a;
+}
+
+.blue {
+    color: #2563eb;
+}
+
+.orange {
+    color: #ea580c;
+}
+
+.section {
+    background: white;
+    padding: 28px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.05);
+}
+
+.section h2 {
+    margin-top: 0;
+}
+
+.environment {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.version {
+    border: 2px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 22px;
+}
+
+.version.active {
+    border-color: #16a34a;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.active-badge {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.standby-badge {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.timeline {
+    border-left: 3px solid #2563eb;
+    padding-left: 20px;
+}
+
+.event {
+    margin-bottom: 20px;
+}
+
+.event strong {
+    display: block;
+}
+
+.footer {
+    text-align: center;
+    padding: 25px;
+    color: #64748b;
+}
+
+@media(max-width:800px) {
+    .cards,
+    .environment {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+    <div class="logo">☁ CloudPulse</div>
+    <div class="live">● SYSTEM OPERATIONAL</div>
+</div>
+
+<div class="container">
+
+<div class="hero">
+    <h1>Deployment Control Center</h1>
+    <p>Zero-downtime application delivery powered by automated cloud deployment.</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+    <h3>ACTIVE VERSION</h3>
+    <div class="value blue">v2.4.1</div>
+</div>
+
+<div class="card">
+    <h3>DEPLOYMENT STATUS</h3>
+    <div class="value green">Healthy</div>
+</div>
+
+<div class="card">
+    <h3>UPTIME</h3>
+    <div class="value">99.98%</div>
+</div>
+
+<div class="card">
+    <h3>RELEASE TIME</h3>
+    <div class="value orange">42 sec</div>
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>Production Environments</h2>
+
+<div class="environment">
+
+<div class="version active">
+
+<span class="badge active-badge">● LIVE TRAFFIC</span>
+
+<h2>Blue Environment</h2>
+
+<div class="row">
+<span>Version</span>
+<strong>v2.4.1</strong>
+</div>
+
+<div class="row">
+<span>Pods</span>
+<strong>3 / 3 Running</strong>
+</div>
+
+<div class="row">
+<span>Response</span>
+<strong>128 ms</strong>
+</div>
+
+<div class="row">
+<span>Health</span>
+<strong class="green">Healthy</strong>
+</div>
+
+</div>
+
+<div class="version">
+
+<span class="badge standby-badge">● STANDBY</span>
+
+<h2>Green Environment</h2>
+
+<div class="row">
+<span>Version</span>
+<strong>v2.5.0</strong>
+</div>
+
+<div class="row">
+<span>Pods</span>
+<strong>3 / 3 Running</strong>
+</div>
+
+<div class="row">
+<span>Response</span>
+<strong>116 ms</strong>
+</div>
+
+<div class="row">
+<span>Health</span>
+<strong class="green">Ready</strong>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="section">
+
+<h2>Deployment Pipeline</h2>
+
+<div class="timeline">
+
+<div class="event">
+<strong>✓ Source Build</strong>
+<span>Application source validated successfully</span>
+</div>
+
+<div class="event">
+<strong>✓ Docker Image</strong>
+<span>Container image created and verified</span>
+</div>
+
+<div class="event">
+<strong>✓ Kubernetes</strong>
+<span>New environment deployed with 3 replicas</span>
+</div>
+
+<div class="event">
+<strong>● Traffic Validation</strong>
+<span>Health checks are passing</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>Infrastructure</h2>
+
+<div class="row">
+<span>Container Platform</span>
+<strong>Docker</strong>
+</div>
+
+<div class="row">
+<span>Orchestration</span>
+<strong>Kubernetes</strong>
+</div>
+
+<div class="row">
+<span>Automation</span>
+<strong>Jenkins CI/CD</strong>
+</div>
+
+<div class="row">
+<span>Deployment Strategy</span>
+<strong>Blue-Green</strong>
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+CloudPulse Deployment Center • Automated Cloud-Native Delivery
+</div>
+
+</body>
+</html>
