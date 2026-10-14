@@ -1,350 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>CloudPulse | Deployment Center</title>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CloudPulse | Deployment Command Center</title>
 <style>
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f7fb;
-    color: #172033;
-}
-
-.header {
-    background: #111827;
-    color: white;
-    padding: 22px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 25px;
-    font-weight: bold;
-}
-
-.live {
-    background: #16a34a;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 13px;
-}
-
-.container {
-    padding: 40px 55px;
-}
-
-.hero {
-    background: linear-gradient(120deg,#2563eb,#7c3aed);
-    color: white;
-    padding: 35px;
-    border-radius: 18px;
-    margin-bottom: 28px;
-}
-
-.hero h1 {
-    margin: 0 0 10px;
-    font-size: 36px;
-}
-
-.hero p {
-    margin: 0;
-    opacity: .9;
-}
-
-.cards {
-    display: grid;
-    grid-template-columns: repeat(4,1fr);
-    gap: 18px;
-    margin-bottom: 28px;
-}
-
-.card {
-    background: white;
-    padding: 24px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,.06);
-}
-
-.card h3 {
-    margin: 0 0 12px;
-    color: #64748b;
-    font-size: 14px;
-}
-
-.value {
-    font-size: 27px;
-    font-weight: bold;
-}
-
-.green {
-    color: #16a34a;
-}
-
-.blue {
-    color: #2563eb;
-}
-
-.orange {
-    color: #ea580c;
-}
-
-.section {
-    background: white;
-    padding: 28px;
-    border-radius: 16px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 15px rgba(0,0,0,.05);
-}
-
-.section h2 {
-    margin-top: 0;
-}
-
-.environment {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.version {
-    border: 2px solid #e5e7eb;
-    border-radius: 14px;
-    padding: 22px;
-}
-
-.version.active {
-    border-color: #16a34a;
-}
-
-.badge {
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 15px;
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.active-badge {
-    background: #dcfce7;
-    color: #166534;
-}
-
-.standby-badge {
-    background: #fef3c7;
-    color: #92400e;
-}
-
-.row {
-    display: flex;
-    justify-content: space-between;
-    padding: 9px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.timeline {
-    border-left: 3px solid #2563eb;
-    padding-left: 20px;
-}
-
-.event {
-    margin-bottom: 20px;
-}
-
-.event strong {
-    display: block;
-}
-
-.footer {
-    text-align: center;
-    padding: 25px;
-    color: #64748b;
-}
-
-@media(max-width:800px) {
-    .cards,
-    .environment {
-        grid-template-columns: 1fr;
-    }
-
-    .container {
-        padding: 25px;
-    }
-}
+:root{color-scheme:dark;--bg:#0a0f1c;--panel:#121a2b;--line:#25334b;--blue:#5b9cff;--green:#35d49a;--muted:#91a3bf}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top right,#172c4c 0,transparent 45%),var(--bg);color:#f3f7ff;font:15px Arial,sans-serif}
+header{padding:25px 7%;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{font-size:23px;font-weight:800;letter-spacing:.5px}.brand span{color:var(--blue)}
+.status{color:var(--green);border:1px solid #216c58;background:#102b29;padding:9px 13px;border-radius:30px;font-size:12px}
+main{max-width:1150px;margin:auto;padding:38px 22px}
+.eyebrow{color:var(--blue);font-size:12px;font-weight:bold;letter-spacing:2px}
+h1{font-size:clamp(30px,5vw,48px);margin:12px 0}
+.sub{color:var(--muted);line-height:1.7;max-width:650px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin:28px 0}
+.card{background:linear-gradient(145deg,#151f33,#101727);border:1px solid var(--line);border-radius:16px;padding:22px}
+.label{color:var(--muted);font-size:13px}.value{font-size:29px;font-weight:bold;margin:13px 0}.green{color:var(--green)}.blue{color:var(--blue)}
+.section-title{font-size:19px;margin:35px 0 16px}
+.pipeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:10px}
+.stage{border:1px solid var(--line);background:#111a2a;padding:19px 12px;border-radius:12px;text-align:center}
+.stage b{display:block;margin:9px 0}.stage small{color:var(--muted)}
+.dot{display:inline-block;width:9px;height:9px;background:var(--green);border-radius:50%;margin-right:7px}
+.activity{display:grid;gap:0}.event{display:flex;gap:12px;padding:15px 0;border-bottom:1px solid var(--line);color:#d9e4f5}.event small{display:block;color:var(--muted);margin-top:5px}
+footer{padding:24px;text-align:center;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
 </style>
 </head>
-
 <body>
+<header>
+  <div class="brand">◈ Cloud<span>Pulse</span></div>
+  <div class="status"><span class="dot"></span>CONTROL CENTER ONLINE</div>
+</header>
+<main>
+  <div class="eyebrow">CLOUD OPERATIONS / OVERVIEW</div>
+  <h1>Deployment Command Center</h1>
+  <p class="sub">One view for your delivery pipeline. Track application deployment, container health and Kubernetes status through an automated CI/CD workflow.</p>
 
-<div class="header">
-    <div class="logo">☁ CloudPulse</div>
-    <div class="live">● SYSTEM OPERATIONAL</div>
-</div>
+  <div class="grid">
+    <div class="card"><div class="label">APPLICATION</div><div class="value">CloudPulse</div><div class="green">● Demo application</div></div>
+    <div class="card"><div class="label">DEPLOYMENT STATUS</div><div class="value green">Ready</div><div class="label">Demo dashboard status</div></div>
+    <div class="card"><div class="label">CONTAINER PLATFORM</div><div class="value blue">Docker</div><div class="label">Image-based delivery</div></div>
+    <div class="card"><div class="label">ORCHESTRATION</div><div class="value">Kubernetes</div><div class="label">Minikube environment</div></div>
+  </div>
 
-<div class="container">
+  <h2 class="section-title">CI/CD Delivery Pipeline</h2>
+  <div class="pipeline">
+    <div class="stage">① <b>GitHub</b><small>Source code</small></div>
+    <div class="stage">② <b>Jenkins</b><small>Automation</small></div>
+    <div class="stage">③ <b>Docker</b><small>Image build</small></div>
+    <div class="stage">④ <b>Kubernetes</b><small>Deployment</small></div>
+    <div class="stage">⑤ <b>Verification</b><small>Pod & service checks</small></div>
+  </div>
 
-<div class="hero">
-    <h1>Deployment Control Center</h1>
-    <p>Zero-downtime application delivery powered by automated cloud deployment.</p>
-</div>
-
-<div class="cards">
-
-<div class="card">
-    <h3>ACTIVE VERSION</h3>
-    <div class="value blue">v2.4.1</div>
-</div>
-
-<div class="card">
-    <h3>DEPLOYMENT STATUS</h3>
-    <div class="value green">Healthy</div>
-</div>
-
-<div class="card">
-    <h3>UPTIME</h3>
-    <div class="value">99.98%</div>
-</div>
-
-<div class="card">
-    <h3>RELEASE TIME</h3>
-    <div class="value orange">42 sec</div>
-</div>
-
-</div>
-
-<div class="section">
-
-<h2>Production Environments</h2>
-
-<div class="environment">
-
-<div class="version active">
-
-<span class="badge active-badge">● LIVE TRAFFIC</span>
-
-<h2>Blue Environment</h2>
-
-<div class="row">
-<span>Version</span>
-<strong>v2.4.1</strong>
-</div>
-
-<div class="row">
-<span>Pods</span>
-<strong>3 / 3 Running</strong>
-</div>
-
-<div class="row">
-<span>Response</span>
-<strong>128 ms</strong>
-</div>
-
-<div class="row">
-<span>Health</span>
-<strong class="green">Healthy</strong>
-</div>
-
-</div>
-
-<div class="version">
-
-<span class="badge standby-badge">● STANDBY</span>
-
-<h2>Green Environment</h2>
-
-<div class="row">
-<span>Version</span>
-<strong>v2.5.0</strong>
-</div>
-
-<div class="row">
-<span>Pods</span>
-<strong>3 / 3 Running</strong>
-</div>
-
-<div class="row">
-<span>Response</span>
-<strong>116 ms</strong>
-</div>
-
-<div class="row">
-<span>Health</span>
-<strong class="green">Ready</strong>
-</div>
-
-</div>
-
-</div>
-</div>
-
-<div class="section">
-
-<h2>Deployment Pipeline</h2>
-
-<div class="timeline">
-
-<div class="event">
-<strong>✓ Source Build</strong>
-<span>Application source validated successfully</span>
-</div>
-
-<div class="event">
-<strong>✓ Docker Image</strong>
-<span>Container image created and verified</span>
-</div>
-
-<div class="event">
-<strong>✓ Kubernetes</strong>
-<span>New environment deployed with 3 replicas</span>
-</div>
-
-<div class="event">
-<strong>● Traffic Validation</strong>
-<span>Health checks are passing</span>
-</div>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<h2>Infrastructure</h2>
-
-<div class="row">
-<span>Container Platform</span>
-<strong>Docker</strong>
-</div>
-
-<div class="row">
-<span>Orchestration</span>
-<strong>Kubernetes</strong>
-</div>
-
-<div class="row">
-<span>Automation</span>
-<strong>Jenkins CI/CD</strong>
-</div>
-
-<div class="row">
-<span>Deployment Strategy</span>
-<strong>Blue-Green</strong>
-</div>
-
-</div>
-
-</div>
-
-<div class="footer">
-CloudPulse Deployment Center • Automated Cloud-Native Delivery
-</div>
-
+  <h2 class="section-title">Operations Activity</h2>
+  <div class="card activity">
+    <div class="event"><span class="dot"></span><div>Application dashboard loaded<small>CloudPulse frontend</small></div></div>
+    <div class="event"><span class="dot"></span><div>Container deployment workflow defined<small>Docker image → Kubernetes</small></div></div>
+    <div class="event"><span class="dot"></span><div>Automated delivery integration planned<small>GitHub source → Jenkins pipeline</small></div></div>
+  </div>
+  <p class="sub">Note: Status cards are demonstration UI indicators. Actual build and cluster status must be verified in Jenkins and Kubernetes.</p>
+</main>
+<footer>CLOUDPULSE • CLOUD DELIVERY PLATFORM • EDUCATIONAL DEMONSTRATION</footer>
 </body>
 </html>
