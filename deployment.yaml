@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: pbl3-app
-          image: pbl3-app:latest
+          image: cloudpulse:v2
           imagePullPolicy: Never
           ports:
             - containerPort: 80
